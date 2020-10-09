@@ -90,5 +90,5 @@ We have determined that, in looking for the highest potential price for the clie
 
 Refining and improving the model for the client would involve getting more information about the garages of the homes that have sold - for example what are the costs of upgrading a garage? Would the higher price the house could fetch offset the price of upgrading to a finished garage? Essentially, next steps would involve delving deeper and researching the client's specific needs.
 
-Improving the model might also involve including more house features, but adhering to the client's specifications and molding the model to them was our utmost concern. Additionally, to tailor even more specifically to the client's needs, it might make sense to get more information about the exact size of the garage and print a quote of prices that 
+Improving the model might also involve including more house features, but adhering to the client's specifications and molding the model to them was our utmost concern. Additionally, to tailor even more specifically to the client's needs, it might make sense to get more information about the exact size of the garage and the home and print a quote of the prices of houses with similarly-sized garage spaces and similar total square footage of the house.
 
