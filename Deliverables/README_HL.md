@@ -1,4 +1,4 @@
-# Helping a Car Collector Find the Right Spot
+# Helping a Car Collector Sell Their Home for the Right Price
 
 ## Links to Relevant Notebooks
 
