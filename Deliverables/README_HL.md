@@ -32,6 +32,7 @@ Here is a data dictionary of the features we selected:
 | Garage Cond   | Condition of the garage: Excellent, Good, Typical/Average, Fair, Poor  | object |
 | Garage Type   | Garage location: Two Types, Attached, Basement, Built-in, Carport, Detached  | object |
 | Garage Finish  | Interior finish of garage: Finished, Rough-Finished, Unfinished  | object |
+| Paved Drive  | Paved driveway (Y = paved, P = partial pavement, N = dirt/gravel)  | object |
 
 
 This correlation heatmap shows which columns out of the garage features I chose had the strongest correlation with the sale price of the houses:
@@ -60,21 +61,36 @@ When it came time to evaluate our model, we used a linear regression model and w
 
 | Dataset        | Score Type   | Score  |
 | ------------- |:-------------:| -----:|
-| Training data | R2 Score | 0.61366 |
-| Testing data  | R2 Score | 0.59807 |
-| Both | RMSE | 49512.67 |
+| Training data | R2 Score | 0.61685 |
+| Testing data  | R2 Score | 0.60499 |
+| Both | RMSE | 49239.10 |
 
 So, how could we update our model so it was better, but still closely reflect our client's particular home? Well, including some of the columns with the strongest correlations from the original dataset might help. So, we made the following chart:
 
 ![alt text](https://git.generalassemb.ly/hrl-dev/project_2/blob/master/Deliverables/Images/numeric_corrs.png "Numeric columns vs. Sale Price")
 
-Well, we can see that Overall Quality of the home and the Above Ground Living Area (in sq. ft.) are very strongly correlated with increasing sale price. Additionally, the Total Basement Square Footage, 1st Floor Square Footage, Year Built, and Year Remodeled or Added Onto also strongly correlated to an increase in price. So, we included those columns - and an interaction column that multiplied their correlation - in our model to increase its functionality. Following their inclusion, the model significantly improved:
+Well, we can see that Overall Quality of the home and the Above Ground Living Area (in sq. ft.) are very strongly correlated with increasing sale price. Additionally, the Total Basement Square Footage, 1st Floor Square Footage, Year Built, and Year Remodeled or Added Onto also strongly correlated to an increase in price. Here is a data dictionary for the new columns we added:
+
+| Column Name   | Description                    | Type  |
+| ------------- |:------------------------------:| -----:|
+| garage_space  | An interaction column between Garage Area and Garage Cars. | float |
+| Overall Qual  | Ranks the overall material and finish of the house (1 - 10). |   float |
+| Gr Liv Area   | Above grade (ground) living area in square feet.  |   float |
+| overall_living   | An interaction column between Overall Qual and Gr Liv Area.  | float |
+| Total Bsmt SF   | Total square feet of basement area.  | float |
+| 1st Flr SF  | First floor square feet.  | float |
+| low_sq_ftg  | An interaction column between Total Bsmt SF and 1st Flr SF. | float |
+| Year Built  | Original construction date.  | float |
+| Year Remod/Add  | Remodel date (same as construction date if no remodelling or additions).  | float |
+| years  | An interaction column between Year Built and Year Remod/Add.  | float |
+
+So, we included the columns with the strongest correlation - and an interaction column that multiplied their correlation - in our model to increase its functionality. Following their inclusion, the model significantly improved:
 
 | Dataset        | Score Type   | Score  |
 | ------------- |:-------------:| -----:|
-| Training data | R2 Score | 0.87886 |
-| Testing data  | R2 Score | 0.87967 |
-| Both | RMSE | 27531.20 |
+| Training data | R2 Score | 0.87940 |
+| Testing data  | R2 Score | 0.88006 |
+| Both | RMSE | 27474.89 |
 
 So, we significantly increased our R2 scores, and decreased our root mean square error by more than 20,000. While adhering to our client's specifications, we believe this is the most functional model we can produce.
 
