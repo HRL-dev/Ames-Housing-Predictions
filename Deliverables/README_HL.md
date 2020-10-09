@@ -2,10 +2,13 @@
 
 ## Links to Relevant Notebooks
 
-[Production Model](../Notebooks/production_model.ipynb)
-[EDA and Cleaning](../Notebooks/eda_and_cleaning.ipynb)
-[Kaggle Submissions](../Notebooks/making_submissions.ipynb)
-[Ridge and Lasso](../Notebooks/ridge_lasso.ipynb)
+[EDA and Cleaning](../Deliverables/Notebooks/01_eda_and_cleaning.ipynb)
+
+[Kaggle Submissions](../Deliverables/Notebooks/02_making_submissions.ipynb)
+
+[Ridge and Lasso](../Deliverables/Notebooks/03_ridge_lasso.ipynb)
+
+[Production Model](../Deliverables/Notebooks/04_production_model.ipynb)
 
 ## Problem Statement
 
@@ -33,21 +36,21 @@ Here is a data dictionary of the features we selected:
 
 This correlation heatmap shows which columns out of the garage features I chose had the strongest correlation with the sale price of the houses:
 
-[plot]: ./Images/garage_corr.png "Garage Correlations"
+[plot]: ../Deliverables/Images/garage_corr.png "Garage Correlations"
 
 From looking at this correlation chart, we can deduce that Garage Area and Garage Cars have the strongest correlation overall to sale price - but the next strongest correlation, surprisingly, was Garage Finished - Unfinished, which was a negative correlation. Apparently, an unfinished garage could significantly reduce a home's sale price. With this information, we could explain to the client that if they are willing to finish their garage before selling it, they could significantly increase the price their home would fetch.
 
 Here, we can show that houses with unfinished garages do not sell for the prices that houses with finished garages can fetch:
 
-[plot]: ./Images/unfinished_price.png "Garage Finish vs. price"
+[plot]: ../Deliverables/Images/unfinished_price.png "Garage Finish vs. price"
 
 In doing a closer examination of the Garage Area feature, we determined that the correlation was significant: a larger garage leads to a higher priced house, as can be seen from this plot:
 
-[plot]: ./Images/area_price.png "Garage Area vs. Sale Price"
+[plot]: ../Deliverables/Images/area_price.png "Garage Area vs. Sale Price"
 
 Finally, we multiplied the two columns with the strongest correlations - Garage Area and Garage Space - by each other to create a super column dedicated to the total space for cars inside a garage. Upon doing so, we plotted it against sale price, and were pleased to see an even stronger correlation:
 
-[plot]: ./Images/space_price.png "Garage Space vs. Sale Price"
+[plot]: ../Deliverables/Images/space_price.png "Garage Space vs. Sale Price"
 
 The conclusions we can draw from this are that our client will be selling for a higher price for their home with a garage spacious enough to host their car collection, but if they're unwilling to finish their garage, they may lose money.
 
@@ -63,7 +66,7 @@ When it came time to evaluate our model, we used a linear regression model and w
 
 So, how could we update our model so it was better, but still closely reflect our client's particular home? Well, including some of the columns with the strongest correlations from the original dataset might help. So, we made the following chart:
 
-[plot]: ./Images/numeric_corrs.png "Numeric columns vs. Sale Price"
+[plot]: ../Deliverables/Images/numeric_corrs.png "Numeric columns vs. Sale Price"
 
 Well, we can see that Overall Quality of the home and the Above Ground Living Area (in sq. ft.) are very strongly correlated with increasing sale price. Additionally, the Total Basement Square Footage, 1st Floor Square Footage, Year Built, and Year Remodeled or Added Onto also strongly correlated to an increase in price. So, we included those columns - and an interaction column that multiplied their correlation - in our model to increase its functionality. Following their inclusion, the model significantly improved:
 
