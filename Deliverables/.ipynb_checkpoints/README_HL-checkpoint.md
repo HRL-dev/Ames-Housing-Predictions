@@ -36,7 +36,7 @@ Here is a data dictionary of the features we selected:
 
 This correlation heatmap shows which columns out of the garage features I chose had the strongest correlation with the sale price of the houses:
 
-![alt text] (https://git.generalassemb.ly/hrl-dev/project_2/blob/master/Deliverables/Images/garage_corr.png "Garage Correlations")
+![alt text](https://git.generalassemb.ly/hrl-dev/project_2/blob/master/Deliverables/Images/garage_corr.png "Garage Correlations")
 
 From looking at this correlation chart, we can deduce that Garage Area and Garage Cars have the strongest correlation overall to sale price - but the next strongest correlation, surprisingly, was Garage Finished - Unfinished, which was a negative correlation. Apparently, an unfinished garage could significantly reduce a home's sale price. With this information, we could explain to the client that if they are willing to finish their garage before selling it, they could significantly increase the price their home would fetch.
 
